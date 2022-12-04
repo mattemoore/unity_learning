@@ -13,7 +13,7 @@ public class Train : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float x_movement = -0.10f * Time.deltaTime;
+        float x_movement = -0.70f * Time.deltaTime;
         this.transform.position += new Vector3(x_movement, 0, 0);
     }
 }
