@@ -418,7 +418,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
   m_LocalRotation: {x: 0.043954026, y: 0.0052321036, z: -0.00029533677, w: 0.9990198}
-  m_LocalPosition: {x: 19.58, y: 3.7, z: -15.05}
+  m_LocalPosition: {x: 15.1, y: 6.7, z: -23.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -741,6 +741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36bbfdb06692a8902bb43b443893f453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerIntro: {fileID: 0}
   explosionParticles: {fileID: 1220975566}
   dirtParticles: {fileID: 1868854879}
   jumpSound: {fileID: 8300000, guid: 0f7d0b7c3397f4dac91f20e8a77d2d57, type: 3}
@@ -754,6 +755,7 @@ MonoBehaviour:
   DASHTIME_DECAY: 3
   DASH_ANIM_MULT: 3
   dashTimeRemaining: 0
+  numJumps: 0
 --- !u!65 &1493543650
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -894,6 +896,7 @@ MonoBehaviour:
   startMarker: {fileID: 49623186}
   endMarker: {fileID: 233323025}
   speed: 3
+  isActive: 1
 --- !u!1 &1504952095
 GameObject:
   m_ObjectHideFlags: 0
