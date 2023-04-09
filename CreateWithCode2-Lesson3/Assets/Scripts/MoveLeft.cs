@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class MoveLeft : MonoBehaviour
@@ -13,7 +12,7 @@ public class MoveLeft : MonoBehaviour
 
     void Update()
     {
-        if (!playerController.gameOver)
-            this.transform.Translate(Vector3.left * Time.deltaTime * speed);
+        if (!playerController.gameOver && !playerController.playerIntro.isActive)
+            this.transform.Translate(Vector3.left * Time.deltaTime * (speed + (Convert.ToInt16(playerController.isPlayerDashing) * speed / 2)));
     }
 }
