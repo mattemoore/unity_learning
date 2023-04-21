@@ -5,7 +5,8 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public GameObject powerupPrefab;
+    public GameObject forcePickupPrefab;
+    public GameObject missilePickupPrefab;
     public int enemyCount = 0;
     public int waveNumber = 0;
     private float maxSpawnDistanceFromOrigin = 8;
@@ -27,7 +28,7 @@ public class SpawnManager : MonoBehaviour
     {
         waveNumber++;
         SpawnEnemies(waveNumber);
-        SpawnPowerUp();
+        SpawnPowerUps();
     }
 
     Vector3 GetRandomSpawnPoint()
@@ -37,9 +38,10 @@ public class SpawnManager : MonoBehaviour
         return randomSpawnPoint;
     }
 
-    void SpawnPowerUp()
+    void SpawnPowerUps()
     {
-        Instantiate(powerupPrefab, GetRandomSpawnPoint(), powerupPrefab.transform.rotation);
+        Instantiate(forcePickupPrefab, GetRandomSpawnPoint(), forcePickupPrefab.transform.rotation);
+        Instantiate(missilePickupPrefab, GetRandomSpawnPoint(), missilePickupPrefab.transform.rotation);
     }
 
     void SpawnEnemies(int numToSpawn)

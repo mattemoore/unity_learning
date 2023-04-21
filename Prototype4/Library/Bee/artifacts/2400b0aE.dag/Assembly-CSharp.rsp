@@ -352,9 +352,11 @@
 "Assets/Challenge 4/Scripts/PlayerControllerX.cs"
 "Assets/Challenge 4/Scripts/RotateCameraX.cs"
 "Assets/Challenge 4/Scripts/SpawnManagerX.cs"
+"Assets/Playground.cs"
 "Assets/Scripts/EnemyController.cs"
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/RotateCamera.cs"
+"Assets/Scripts/RotatePickup.cs"
 "Assets/Scripts/SpawnManager.cs"
 -langversion:9.0
 
