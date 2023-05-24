@@ -8,22 +8,17 @@ public class TargetX : MonoBehaviour
     private GameManagerX gameManagerX;
     public int pointValue;
     public GameObject explosionFx;
-
     public float timeOnScreen = 1.0f;
-
     private float minValueX = -3.75f; // the x value of the center of the left-most square
     private float minValueY = -3.75f; // the y value of the center of the bottom-most square
     private float spaceBetweenSquares = 2.5f; // the distance between the centers of squares on the game board
-
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         gameManagerX = GameObject.Find("Game Manager").GetComponent<GameManagerX>();
-
         transform.position = RandomSpawnPosition();
         StartCoroutine(RemoveObjectRoutine()); // begin timer before target leaves screen
-
     }
 
     // When target is clicked, destroy it, update score, and generate explosion
@@ -35,7 +30,6 @@ public class TargetX : MonoBehaviour
             gameManagerX.UpdateScore(pointValue);
             Explode();
         }
-
     }
 
     // Generate a random spawn position based on a random index from 0 to 3
@@ -43,7 +37,6 @@ public class TargetX : MonoBehaviour
     {
         float spawnPosX = minValueX + (RandomSquareIndex() * spaceBetweenSquares);
         float spawnPosY = minValueY + (RandomSquareIndex() * spaceBetweenSquares);
-
         Vector3 spawnPosition = new Vector3(spawnPosX, spawnPosY, 0);
         return spawnPosition;
 
@@ -55,7 +48,6 @@ public class TargetX : MonoBehaviour
         return Random.Range(0, 4);
     }
 
-
     // If target that is NOT the bad object collides with sensor, trigger game over
     private void OnTriggerEnter(Collider other)
     {
@@ -65,7 +57,6 @@ public class TargetX : MonoBehaviour
         {
             gameManagerX.GameOver();
         }
-
     }
 
     // Display explosion particle at object's position
@@ -82,7 +73,5 @@ public class TargetX : MonoBehaviour
         {
             transform.Translate(Vector3.forward * 5, Space.World);
         }
-
     }
-
 }

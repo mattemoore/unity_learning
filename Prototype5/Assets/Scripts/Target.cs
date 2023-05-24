@@ -15,6 +15,8 @@ public class Target : MonoBehaviour
     public ParticleSystem explosionParticle;
     private Rigidbody rb;
     private GameManager gameManager;
+    private AudioSource sfx;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,7 @@ public class Target : MonoBehaviour
         rb.AddTorque(GetRandomTorque(minTorque, maxTorque), ForceMode.Impulse);
         rb.transform.position = new Vector3(Random.Range(minXPos, maxXPos), yPos);
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        sfx = GameObject.Find("SFX").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -31,11 +34,15 @@ public class Target : MonoBehaviour
 
     }
 
-    public void OnMouseDown()
+    public void DestroyTarget()
     {
-        Destroy(this.gameObject);
-        gameManager.UpdateScore(pointValue);
-        Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
+        if (gameManager.isGameRunning)
+        {
+            gameManager.AddToScore(pointValue);
+            Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
+            sfx.PlayDelayed(0.2f);
+            Destroy(this.gameObject, 0.1f);
+        }
     }
 
     public void OnTriggerEnter(Collider other)
@@ -43,7 +50,7 @@ public class Target : MonoBehaviour
         Destroy(this.gameObject);
         if (!gameObject.CompareTag("Bad"))
         {
-            gameManager.EndGame();
+            gameManager.LoseLife();
         }
     }
 
