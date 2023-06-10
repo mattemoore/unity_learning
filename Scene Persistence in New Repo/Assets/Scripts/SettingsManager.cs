@@ -47,5 +47,7 @@ public class SettingsManager : MonoBehaviour
     public class Settings
     {
         public string PlayerName;
+        public int HighScorePoints;
+        public string HighScorePlayerName;
     }
 }
