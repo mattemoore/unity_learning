@@ -6,6 +6,7 @@ using UnityEngine;
 public class FootstepManager : MonoBehaviour
 {
     public List<AudioClip> grassSteps = new List<AudioClip>();
+    //foos
     public List<AudioClip> waterSteps = new List<AudioClip>();
     public List<AudioClip> caveSteps = new List<AudioClip>();
 
